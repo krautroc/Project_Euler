@@ -12,11 +12,6 @@ public class multThreeFive{
 		this.sum = 0;
 	}
 	public multThreeFive(int max){
-		if (max <0 || max > 10000){
-                    System.out.print("INVALID input: please enter a number > 0 or < 10,000"); 
-                    exit();
-		}
-		//otherwise
 		this.max = max;
 	}
 	/** calculateSum()
@@ -44,6 +39,11 @@ public class multThreeFive{
                 System.out.println("No input arguments, try again");
             else{
 		n = Integer.parseInt(args[0]);
+		while(n < 0 && n >=10000){
+				System.out.print("INVALID value! Please enter a positive number less than 4 million: ");
+				Scanner sc = new Scanner(System.in);
+				n = sc.nextInt();
+		}
 		obj = new multThreeFive(n);
 		sum = obj.calculateSum();
 		obj.showResults();
